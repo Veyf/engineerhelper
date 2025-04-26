@@ -141,32 +141,35 @@
                     <div class="question">Tried to wash out blockage with water?</div>
                     <div class="buttons">
                         <button onclick="handleAnswer('hardcivils2')">Tried, Still blocked</button>
-                    </div>
                     <button onclick="handleAnswer('reset')">Back to start</button>
+                    </div>
+                    
                 `;
             }else if (answer === 'hardcivils2') {
                 container.innerHTML = `
                     <div class="question">Tried to clear blockage with wetvac?</div>
                     <div class="buttons">
                         <button onclick="handleAnswer('hardcivils3')">Tried, Still blocked</button>
+                        <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
-                    <button onclick="handleAnswer('reset')">Back to start</button>
+                    
                 `;
             }else if (answer === 'hardcivils3') {
                 container.innerHTML = `
                     <div class="question">Tried to blast out blockage with jet wash?</div>
                     <div class="buttons">
                         <button onclick="handleAnswer('hardcivils4')">Tried, Still blocked</button>
+                        <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
-                    <button onclick="handleAnswer('reset')">Back to start</button>
                 `;
             }else if (answer === 'hardcivils4') {
                 container.innerHTML = `
                     <div class="question">Tried to drill through blockage with Flexible Drill Bit?</div>
                     <div class="buttons">
                         <button onclick="handleAnswer('hardcivils5')">Tried, Still blocked</button>
+                        <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
-                    <button onclick="handleAnswer('reset')">Back to start</button>
+                    
                 `;
             }else if (answer === 'hardcivils5') {
                 container.innerHTML = `
@@ -174,7 +177,6 @@
                     <div class="buttons">
                         <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
-                    <button onclick="handleAnswer('reset')">Back to start</button>
                 `;
             }else if (answer === 'reset') {
                 container.innerHTML = `
