@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Prompt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            color: #1c1b1f;
+        }
+        .question {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #6200ee;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            background-color: #3700b3;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        button:active {
+            background-color: #03dac5;
+        }
+        ol {
+            padding-left: 40px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 1rem;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="questionContainer">
+        <div class="question">What is your work type?</div>
+        <div class="buttons">
+            <button onclick="showNextQuestion('copper')">Copper</button>
+            <button onclick="showNextQuestion('fttp')">Fibre</button>
+        </div>
+    </div>
+
+    <script>
+        function showNextQuestion(type) {
+            const container = document.getElementById('questionContainer');
+            if (type === 'copper') {
+                container.innerHTML = `
+                    <div class="question">What is your Copper issue?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('safety')">Safety</button>
+                        <button onclick="handleAnswer('pqt')">Pair Quality Test</button>
+                        <button onclick="handleAnswer('eside')">E Side</button>
+                        <button onclick="handleAnswer('D Side')">D Side</button>
+                    </div>
+                `;
+            } else if (type === 'fttp') {
+                container.innerHTML = `
+                    <div class="question">What is your Fibre issue?</div>
+                    <div class="buttons">
+                        <button onclick="showNextQuestion('safety')">Safety</button>
+                        <button onclick="showNextQuestion('routing')">Routing</button>
+                        <button onclick="showNextQuestion('light')">Light</button>
+                        <button onclick="handleAnswer('civils')">UG Blockage</button>
+                    </div>
+                `;
+            } else if (type === 'routing') {
+                container.innerHTML = `
+                    <div class="question">What is your Routing issue?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('Change CBT')">Change CBT</button>
+                        <button onclick="handleAnswer('Wrong SASA')">Wrong SASA</button>
+                    </div>
+                `;
+            } 
+        }
+
+        function handleAnswer(answer) {
+            const container = document.getElementById('questionContainer');
+            if (answer === 'Change CBT') {
+                container.innerHTML = `
+                    <div class="question" style="text-align: left; padding: 20px;">
+                        <h3>How to Change CBT:</h3>
+                        <ol>
+                            <li>Open the job in My Services App</li>
+                            <li>Select Routing from the services list</li>
+                            <li>Tap "Request new routing" at the bottom</li>
+                            <li>Input desired CBT ID</li>
+                            <li>Set reason to "Manifold/CBT change"</li>
+                        </ol>
+                        <p><strong>Success:</strong> Green banner indicates an on-the-day swap was completed. A job rebuild by DCOE may be required if tests fail or Internet connectivity does not work</p>
+                        <p><strong>Failure:</strong> Red banner indicates change not possible due to different headend routing</p>
+                    </div>
+                `;
+            } else if (answer === 'civils') {
+                container.innerHTML = `
+                    <div class="question">Tried both Big and Small cobras?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('hardcivils')">Hard blockage</button>
+                        <button onclick="handleAnswer('softcivils)">Soft blockage</button>
+                        <button onclick="handleAnswer('congestedduct')">Congested duct</button>
+                    </div>
+                `;
+            }else if (answer === 'hardcivils') {
+                container.innerHTML = `
+                    <div class="question">Tried to wash out blockage with water?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('hardcivils2')">Tried, Still blocked</button>
+                    </div>
+                `;
+            }else if (answer === 'hardcivils2') {
+                container.innerHTML = `
+                    <div class="question">Tried to clear blockage with wetvac?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('hardcivils3')">Tried, Still blocked</button>
+                    </div>
+                `;
+            }else if (answer === 'hardcivils3') {
+                container.innerHTML = `
+                    <div class="question">Tried to blast out blockage with jet wash?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('hardcivils4')">Tried, Still blocked</button>
+                    </div>
+                `;
+            }else if (answer === 'hardcivils4') {
+                container.innerHTML = `
+                    <div class="question">Tried to drill through blockage with Flexible Drill Bit?</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('hardcivils5')">Tried, Still blocked</button>
+                    </div>
+                `;
+            }else if (answer === 'hardcivils5') {
+                container.innerHTML = `
+                    <div class="question">If there is free movement on existing cable a cut and draw may be possible, otherwise contact your manager for a slip number.</div>
+                    <div class="buttons">
+                        <button onclick="handleAnswer('reset')">Back to start</button>
+                    </div>
+                `;
+            }else if (answer === 'reset') {
+                container.innerHTML = `
+                    <div class="question">What is your work type?</div>
+                    <div class="buttons">
+                    <button onclick="showNextQuestion('copper')">Copper</button>
+                    <button onclick="showNextQuestion('fttp')">Fibre</button>
+                    </div>
+                `;
+            } else {
+                alert(`You selected: ${answer}`);
+            }
+        }
+    </script>
+</body>
+</html>
