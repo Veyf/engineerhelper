@@ -82,6 +82,7 @@
                         <button onclick="handleAnswer('pqt')">Pair Quality Test</button>
                         <button onclick="handleAnswer('eside')">E Side</button>
                         <button onclick="handleAnswer('D Side')">D Side</button>
+                        <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
                 `;
             } else if (type === 'fttp') {
@@ -92,6 +93,7 @@
                         <button onclick="showNextQuestion('routing')">Routing</button>
                         <button onclick="showNextQuestion('light')">Light</button>
                         <button onclick="handleAnswer('civils')">UG Blockage</button>
+                        <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
                 `;
             } else if (type === 'routing') {
@@ -100,6 +102,7 @@
                     <div class="buttons">
                         <button onclick="handleAnswer('Change CBT')">Change CBT</button>
                         <button onclick="handleAnswer('Wrong SASA')">Wrong SASA</button>
+                        <button onclick="handleAnswer('reset')">Back to start</button>
                     </div>
                 `;
             } 
@@ -121,6 +124,7 @@
                         <p><strong>Success:</strong> Green banner indicates an on-the-day swap was completed. A job rebuild by DCOE may be required if tests fail or Internet connectivity does not work</p>
                         <p><strong>Failure:</strong> Red banner indicates change not possible due to different headend routing</p>
                     </div>
+                    <button onclick="handleAnswer('reset')">Back to start</button>
                 `;
             } else if (answer === 'civils') {
                 container.innerHTML = `
